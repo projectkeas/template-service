@@ -1,0 +1,33 @@
+name: '[Release] On Publish'
+
+on:
+  release:
+    types: [ published ]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+          submodules: 'true'
+      - name: Build & Verify
+        uses: projectkeas/.engineering/.github/actions/go-build@main
+        with:
+          appName: app
+          outputDirectory: ./out
+      - name: Build Docker Image
+        uses: projectkeas/.engineering/.github/actions/docker-build@main
+        with:
+          context: ./out
+          token: ${{ github.token }}
+          pushImagesOnComplete: 'true'
+          tags: |
+            ghcr.io/${{ github.repository }}:${{ github.event.release.tag_name }}
+      - name: Upload release files
+        shell: bash
+        run: |
+          echo ${{ github.token }} | gh auth login --with-token
+          ls ./out | while read filename;do gh release upload ${{ github.event.release.tag_name }} ./out/$filename; done
