@@ -1,9 +1,10 @@
 # Service Template
 
-## Checklist:
+## Checklist
 
 - Replace `appName` in `./.github/workflows/PR-Build.yml`
 - Replace `appName` in `./.github/workflows/Release-Published.yml`
+- Replace `appName` in `./app.go`
 - Replace `app` in `./Dockerfile` (_see below_)
 
 ## Dockerfile changes
