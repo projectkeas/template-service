@@ -7,27 +7,36 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    env:
+      OUTPUT_DIRECTORY: ./out
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
         with:
           fetch-depth: 1
           submodules: 'true'
+      
+      - name: Setup Supplychain Security
+        uses: projectkeas/.engineering/.github/actions/setup-supplychain-security@main
+        with:
+          cosignPrivateKey: ${{ secrets.COSIGN_PRIVATE_KEY }}
+      
       - name: Build & Verify
         uses: projectkeas/.engineering/.github/actions/go-build@main
         with:
-          appName: app
-          outputDirectory: ./out
+          appName: appName
+          cosignPrivateKeyPassword: ${{ secrets.COSIGN_PASSWORD }}
+          cosignPublicKey: ${{ secrets.COSIGN_PUBLIC_KEY }}
+          outputDirectory: ${{ env.OUTPUT_DIRECTORY }}
+      
       - name: Build Docker Image
         uses: projectkeas/.engineering/.github/actions/docker-build@main
         with:
-          context: ./out
-          token: ${{ github.token }}
+          context: ${{ env.OUTPUT_DIRECTORY }}
+          cosignPrivateKeyPassword: ${{ secrets.COSIGN_PASSWORD }}
+          cosignPublicKey: ${{ secrets.COSIGN_PUBLIC_KEY }}
+          imageName: ghcr.io/projectkeas/appName
           pushImagesOnComplete: 'true'
-          tags: |
-            ghcr.io/${{ github.repository }}:${{ github.event.release.tag_name }}
-      - name: Upload release files
-        shell: bash
-        run: |
-          echo ${{ github.token }} | gh auth login --with-token
-          ls ./out | while read filename;do gh release upload ${{ github.event.release.tag_name }} ./out/$filename; done
+
+      - name: Publish Release Assets
+        uses: projectkeas/.engineering/.github/actions/publish-release-assets@main

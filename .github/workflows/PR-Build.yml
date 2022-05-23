@@ -8,19 +8,23 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      OUTPUT_DIRECTORY: ./out
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
         with:
           fetch-depth: 1
           submodules: 'true'
+      
       - name: Build & Verify
         uses: projectkeas/.engineering/.github/actions/go-build@main
         with:
-          appName: app
-          outputDirectory: ./out
+          appName: appName
+          outputDirectory: ${{ env.OUTPUT_DIRECTORY }}
+      
       - name: Build Docker Image
         uses: projectkeas/.engineering/.github/actions/docker-build@main
         with:
-          context: ./out
-          pushImagesOnComplete: 'false'
+          context: ${{ env.OUTPUT_DIRECTORY }}
+          imageName: ghcr.io/projectkeas/appName
