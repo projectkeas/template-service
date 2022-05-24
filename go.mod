@@ -3,8 +3,8 @@ module github.com/projectkeas/.template-service
 go 1.18
 
 require (
-	github.com/gofiber/fiber/v2 v2.33.0
-	github.com/projectkeas/sdks-service v0.0.0-20220521132214-668ca0cb0247
+	github.com/gofiber/fiber/v2 v2.34.0
+	github.com/projectkeas/sdks-service v0.0.0-20220523132715-4987e13a5589
 )
 
 require (

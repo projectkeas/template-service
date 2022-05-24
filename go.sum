@@ -117,6 +117,8 @@ github.com/gofiber/contrib/fiberzap v0.0.0-20220518072952-1a3033b30569 h1:z2Hx9c
 github.com/gofiber/contrib/fiberzap v0.0.0-20220518072952-1a3033b30569/go.mod h1:tACuVjHYWN2u6w2x3mkQU3XgM7vCQlHeMSyFvLG022U=
 github.com/gofiber/fiber/v2 v2.33.0 h1:U9om15fapDkQ2sd9JQMfZLOs52bagsMAoTomQDqyJtg=
 github.com/gofiber/fiber/v2 v2.33.0/go.mod h1:CMy5ZLiXkn6qwthrl03YMyW1NLfj0rhxz2LKl4t7ZTY=
+github.com/gofiber/fiber/v2 v2.34.0 h1:96BJMw6uaxQhJsHY54SFGOtGgp9pgombK5Hbi4JSEQA=
+github.com/gofiber/fiber/v2 v2.34.0/go.mod h1:ozRQfS+D7EL1+hMH+gutku0kfx1wLX4hAxDCtDzpj4U=
 github.com/gogo/protobuf v1.3.2 h1:Ov1cvc58UF3b5XjBnZv7+opcTcQFZebYjWzi34vdm4Q=
 github.com/gogo/protobuf v1.3.2/go.mod h1:P1XiOD3dCwIKUDQYPy72D8LYyHL2YPYrpS2s69NZV8Q=
 github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b/go.mod h1:SBH7ygxi8pfUlaOkMMuAQtPIUF8ecWP5IEl/CR7VP2Q=
@@ -255,6 +257,8 @@ github.com/projectkeas/sdks-service v0.0.0-20220521130832-4b6e0b280f20 h1:5dYjBz
 github.com/projectkeas/sdks-service v0.0.0-20220521130832-4b6e0b280f20/go.mod h1:I/RUI/kRJTbK+J43IuRE3Xhm6IlKS9Vuh/pcRxvb2/o=
 github.com/projectkeas/sdks-service v0.0.0-20220521132214-668ca0cb0247 h1:Pv00yYLAHlWPJUfZ8q2Jkd2uOTmnxGzlYa0I/HHzW/U=
 github.com/projectkeas/sdks-service v0.0.0-20220521132214-668ca0cb0247/go.mod h1:ptj6NcQxTo7lgWZPWKEYYpyXwCYbqbD+7Hm9x4kC+Zs=
+github.com/projectkeas/sdks-service v0.0.0-20220523132715-4987e13a5589 h1:qu0JoR0G4ilJsx/fb6nD57R1vkUNyicvMFi9I/wJD8M=
+github.com/projectkeas/sdks-service v0.0.0-20220523132715-4987e13a5589/go.mod h1:Wi3OqU5VbRQhhsxO1pL3Po1KN3ImI0LrW4FkQAnVXME=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
 github.com/rogpeppe/fastuuid v1.2.0/go.mod h1:jVj6XXZzXRy/MSR5jhDC/2q6DgLz+nrA6LYCDYWNEvQ=
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=
