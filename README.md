@@ -2,6 +2,7 @@
 
 ## Checklist
 
+- Replace `.template-service` in `go.mod`
 - Replace `appName` in `./.github/workflows/PR-Build.yml`
 - Replace `appName` in `./.github/workflows/Release-Published.yml`
 - Replace `appName` in `./app.go`
