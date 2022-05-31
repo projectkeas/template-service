@@ -1,12 +1,10 @@
 name: '[Release] PR Labeler'
 
 on:
-  pull_request_target:
-    branches:
-      - main
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
   release-labeller:
